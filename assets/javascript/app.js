@@ -37,3 +37,7 @@ var timer = 200;
 var timerId;
 var correct = 0;
 var incorrect = 0;
+
+for (var i = 0; i < questions.length; i++){
+    $("#questions").append('<h2>' + questions[i].question + "</h2");
+}
