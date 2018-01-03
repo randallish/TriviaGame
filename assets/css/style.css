@@ -1,0 +1,10 @@
+body{
+    text-align:center;
+}
+
+#time-remaining{
+    color:blue;
+    position: absolute;
+    top: 0;
+
+}

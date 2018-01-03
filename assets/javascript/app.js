@@ -33,11 +33,56 @@ var questions = [ {
 },
 ]
 
+var userAnswer = "";
 var timer = 200;
 var timerId;
 var correct = 0;
 var incorrect = 0;
 
+
+function createQuestions() {
 for (var i = 0; i < questions.length; i++){
     $("#questions").append('<h2>' + questions[i].question + "</h2");
+
+
+for (var k = 0; k < questions[i].choices.length; k++){
+    $("#questions").append("<input type='radio' name='question'" + i +
+    "' value='" + questions[i].choices[k] + "''>" + questions[i].choices[k]);
 }
+}
+};
+
+
+//function answerChecker () {
+   // var choices = $(questions.choices);
+    //for ( var j = 0; j < questions.length; j++){
+      //  userAnswer = (choices[j].$('input[name=radio]:checked').val());
+
+        //if (userAnswer === questions[j].answer){
+       //     correct++;
+       // }
+       // else {
+       //     incorrect++;
+       // }
+//}
+//}
+
+function countdown(){
+    timer--;
+    $("#time-remaining").html("<h2>" + "Time remaining: " + timer + "</h2>");
+    if ( timer === 0){
+        stop();
+    }
+}
+
+function start(){
+    timerId = setInterval(countdown,1000)
+}
+
+function stop() {
+    clearInterval(timerId);
+}
+
+
+createQuestions();
+start();
