@@ -1,5 +1,7 @@
 body{
     text-align:center;
+    color: aquamarine;
+    background-color:black;
 }
 
 #time-remaining{
@@ -7,4 +9,35 @@ body{
     position: absolute;
     top: 0;
 
+}
+
+#kobe {
+    width: 20%;
+    position:absolute;
+    margin-top: -700px;
+    margin-left: -700px;
+}
+
+#mj{
+    width:28%;
+    position:absolute;
+    margin-left:-850px;
+    margin-top:-300px;
+}
+
+#lebron{
+    width:30%;
+    position:absolute;
+    margin-left: 300px;
+    margin-top: -700px;
+}
+
+#basket{
+    width:15%;
+    margin-top:20px;
+}
+
+#nba {
+    width:10%;
+    margin-top:20px;
 }
