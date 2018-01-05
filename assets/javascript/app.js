@@ -1,3 +1,4 @@
+// creating an array of objects to store the questions/answers
 var questions = [ {
     question: "Which team holds the best regular season record in NBA history?",
     choices: ["16 Warriors", "96 Bulls", "72 Lakers", "97 Bulls"],
@@ -33,24 +34,37 @@ var questions = [ {
 },
 ]
 
+// global variables
 var userAnswer = "";
 var timer = 200;
 var timerId;
 var correct = 0;
 var incorrect = 0;
 
-
+// creates our questions 
 function createQuestions() {
 for (var i = 0; i < questions.length; i++){
     $("#questions").append('<h2>' + questions[i].question + "</h2");
 
 
 for (var k = 0; k < questions[i].choices.length; k++){
-    $("#questions").append("<input type='radio' name='question'" + i +
+    $("#questions").append("<input type='radio'id='answer' name='question'" + i +
     "' value='" + questions[i].choices[k] + "''>" + questions[i].choices[k]);
 }
 }
 };
+
+function answerChecker(){
+    userAnswer = $("input[name=question]:checked").val();
+    for (var j = 0; j < questions.length; j++) {
+        if (userAnswer === questions[j].answer){
+            correct++;
+        }
+        else {
+            incorrect++;
+        }
+    }
+}
 
 
 //function answerChecker () {
@@ -67,6 +81,8 @@ for (var k = 0; k < questions[i].choices.length; k++){
 //}
 //}
 
+// function that decrease by 1 and update our timer to the html
+// if timer is 0, runs our stop() function
 function countdown(){
     timer--;
     $("#time-remaining").html("<h2>" + "Time remaining: " + timer + "</h2>");
@@ -75,14 +91,22 @@ function countdown(){
     }
 }
 
+// function to run our countdown timer in 1 sec intervals
 function start(){
     timerId = setInterval(countdown,1000)
 }
 
+// when timer hits 0, runs this to clear the timer
 function stop() {
     clearInterval(timerId);
 }
 
+// button to show our questions and begin the quiz
+$("#start").on("click", function(){
+    createQuestions();
+     // start();
+    answerChecker();
+})
 
 createQuestions();
 start();
