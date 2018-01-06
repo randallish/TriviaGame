@@ -4,6 +4,7 @@ body{
     background-color:black;
     font-family: 'Orbitron', sans-serif;
     font-size: 12px;
+    padding-bottom: 50px;
 }
 
 #time-remaining{
@@ -11,7 +12,7 @@ body{
     position: absolute;
     font-family: 'Sedgwick Ave Display', cursive;
     margin-left: 600px;
-    margin-top: -700px;
+    margin-top: -900px;
     font-size: 20px;
 
 }
@@ -54,5 +55,15 @@ body{
 
 #answer {
     margin-left: 50px;
-    margin-top: 15px;
+    padding-top: 40px;
+}
+
+
+#q{
+    padding-top: 40px;
+}
+
+h1{
+    font-size: 50px;
+    padding-top: 40px;
 }

@@ -35,8 +35,8 @@ var questions = [ {
 ]
 
 // global variables
-var userAnswer = "";
-var timer = 200;
+var userAnswer = [];
+var timer = 5;
 var timerId;
 var correct = 0;
 var incorrect = 0;
@@ -44,7 +44,7 @@ var incorrect = 0;
 // creates our questions 
 function createQuestions() {
 for (var i = 0; i < questions.length; i++){
-    $("#questions").append('<h2>' + questions[i].question + "</h2");
+    $("#questions").append('<h2 id="q">' + questions[i].question + "</h2>");
 
 
 for (var k = 0; k < questions[i].choices.length; k++){
@@ -55,7 +55,7 @@ for (var k = 0; k < questions[i].choices.length; k++){
 };
 
 function answerChecker(){
-    userAnswer = $("input[name=question]:checked").val();
+    userAnswer = $("input[name='question']:checked", '#answer').val();
     for (var j = 0; j < questions.length; j++) {
         if (userAnswer === questions[j].answer){
             correct++;
@@ -64,6 +64,7 @@ function answerChecker(){
             incorrect++;
         }
     }
+    console.log(userAnswer);
 }
 
 
@@ -81,13 +82,14 @@ function answerChecker(){
 //}
 //}
 
-// function that decrease by 1 and update our timer to the html
+// function that decreases timer by 1 and update our timer to the html
 // if timer is 0, runs our stop() function
 function countdown(){
     timer--;
     $("#time-remaining").html("<h2>" + "Time remaining: " + timer + "</h2>");
     if ( timer === 0){
         stop();
+        displayScore();
     }
 }
 
@@ -101,6 +103,11 @@ function stop() {
     clearInterval(timerId);
 }
 
+function displayScore() {
+    $("#questions").hide();
+    $("#time-remaining").hide();
+}
+
 // button to show our questions and begin the quiz
 $("#start").on("click", function(){
     createQuestions();
@@ -110,3 +117,4 @@ $("#start").on("click", function(){
 
 createQuestions();
 start();
+answerChecker();
