@@ -34,12 +34,12 @@ var questions = [ {
 },
 ]
 
-// global variables
-var timer = 30;
+// global variables with timer and correct/incorrect answers
+var timer = 10;
 var timerId;
 var correct = 0;
 var incorrect = 0;
-var userAnswer = [];
+
 
 // creates our questions 
 function createQuestions() {
@@ -54,18 +54,24 @@ for (var k = 0; k < questions[i].choices.length; k++){
 }
 };
 
-function answerChecker() {
-   userAnswer = $("input[name='options-']:checked").val();
-    
-    for (var j = 0; j < questions.length; j++) {
-        if (userAnswer === questions[0].answer){
-            correct++;
-        }
-        else {
-            incorrect++;
-        }
-    }
-}
+// function answerChecker() {
+//     var userAnswer = $('input[name='options-']:checked').val;
+
+//     for (var j = 0; j < questions.length; j++) {
+//         if (userAnswer === questions[j].answer){
+//             correct++;
+//         }
+//         else {
+//             incorrect++;
+//         }
+//     }
+//     console.log(incorrect);
+// }
+
+$('input[name="options-0"]').click(function() {
+    alert($('input[name="options-0"]:checked').val());
+});
+
 
 // function that decreases timer by 1 and update our timer to the html
 // if timer is 0, runs our stop() function
@@ -74,6 +80,7 @@ function countdown() {
     $("#time-remaining").html("<h2>" + "Time remaining: " + timer + "</h2>");
     if ( timer === 0){
         stop();
+        //answerChecker();
         displayScore();
     }
 }
@@ -88,17 +95,20 @@ function stop() {
     clearInterval(timerId);
 }
 
+// when timer is up, hide some images
+// hide questions and display score
 function displayScore() {
     $("#curry").hide();
     $("#kd").hide();
     $("#mj").hide();
     $("#questions").hide();
     $("#time-remaining").hide();
-    $("#correct").append("Correct: "  + correct);
-    $("#incorrect").append("Incorrect: " + incorrect);
+    $("body").append("<div id='correct'>" +  "Correct: "  + correct + "</div>");
+    $("body").append("<div id='incorrect'>" + "Incorrect: " + incorrect + "</div>");
     $("#reset").show();
 }
 
+// hiding images
 function hideItems() {
     $("#reset").hide();
     $("#mj").hide();
@@ -107,6 +117,7 @@ function hideItems() {
     $("#lebron").hide();
 }
 
+// showing and hiding certain images depending on state of page
 function showHide(){
     $("#start").hide();
     $("#mj").show();
@@ -123,12 +134,20 @@ function showHide(){
     $("#lebron").show();
 }
 
-
+// reset button to reset html and empty values
+// restarts the quiz
 $("#reset").on("click",function() {
     timer = 60;
-    createQuestions();
+    correct = 0;
+    incorrect = 0;
+    $("#questions").show();  
+    $("#time-remaining").show(); 
+    $("#correct").empty();
+    $("#incorrect").empty();
+
+    showHide();
     start();
-    answerChecker();
+   // answerChecker();
 });
 
 // button to show our questions and begin the quiz
@@ -136,7 +155,7 @@ $("#start").on("click", function(){
     showHide();
     createQuestions();
     start();
-    answerChecker();
+    //answerChecker();
 });
 
 hideItems();
