@@ -35,7 +35,7 @@ var questions = [ {
 ]
 
 // global variables with timer and correct/incorrect answers
-var timer = 10;
+var timer = 60;
 var timerId;
 var correct = 0;
 var incorrect = 0;
