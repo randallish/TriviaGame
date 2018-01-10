@@ -6,19 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NBA Trivia Game</title>
     <link href="https://fonts.googleapis.com/css?family=Orbitron|Sedgwick+Ave+Display" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <h1>  NBA Trivia Game </h1><img id="basket" src="https://images.designtrends.com/wp-content/uploads/2015/12/21133013/Basketball-Background1.jpg"> <img id="nba" src="https://s-media-cache-ak0.pinimg.com/originals/6e/68/c2/6e68c24e48122d2ab815cc92ed4e5870.jpg"
-    >
+    <h1 id="trivia" >Trivia Game </h1>
+    <img id="kd" src="http://explica.io/img/NBA/player/kevin-durant.png">
+    <img id="kobe-2" src="http://www.stickpng.com/assets/images/584564c37c25fb418d2c2994.png">
+    <form id="form1">
+    </form>
+
+
     <div id="questions"></div>
     <div id="time-remaining"></div>
-    <div id="correct"></div>
-    <div id="incorrect"></div>
-    <button id="start">Start Quiz</button>
+    <button type="button" id="start" class="btn btn-primary btn-lg">Start Quiz</button>
+    <button type="button" id="reset" class="btn btn-primary btn-lg">Try Again</button>
     <div> <img id ="kobe" src="http://www.interbasket.net/news/wp-content/uploads/kobe-fadeaway-jumper-signature.jpg"> </div>
     <div> <img id="mj" src="http://hdwallpaper2013.com/wp-content/uploads/2013/02/Michael-Jordan-2013-Dunk-HD-Wallpaper.jpg"></div>
-    <div> <img id="lebron" src="https://i.imgur.com/YUvQmc3.png"></div>
+    <div> <img id="lebron" src="https://rfathead-res.cloudinary.com/image/upload/c_scale,f_auto,h_600,q_auto,w_600/v1506455237/22-20672_nba_lebron_james_black_realbig_prod_gabrri.png"></div>
+    <div> <img id="curry" src="https://world.wng.org/sites/default/files/migrated_images/curry_2_1.png"></div>
+    <div> <img id="logo" src="http://sqwanjia.net/data/out/88/39457361-nba-logo.png"></div>
+    <div> <img id="court" src="./assets/images/lakers.gif"></div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous">

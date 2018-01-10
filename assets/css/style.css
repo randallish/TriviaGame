@@ -8,10 +8,10 @@ body{
 
 #time-remaining{
     color:white;
-    position: absolute;
+    position: fixed;
     font-family: 'Sedgwick Ave Display', cursive;
     margin-left: 600px;
-    margin-top: -830px;
+    margin-top: -1100px;
     font-size: 23px;
 }
 
@@ -26,7 +26,7 @@ body{
 #kobe {
     width: 20%;
     position:absolute;
-    margin-top: -700px;
+    margin-top: -930px;
     margin-left: -700px;
 }
 
@@ -34,21 +34,21 @@ body{
     width:28%;
     position:absolute;
     margin-left:-850px;
-    margin-top:-300px;
+    margin-top:-550px;
 }
 
 #lebron{
     width:12%;
     position:absolute;
     margin-left: 490px;
-    margin-top: -680px;
+    margin-top: -900px;
 }
 
 #curry {
     width:10%;
     position:absolute;
     margin-left:490px;
-    margin-top: -300px;
+    margin-top: -550px;
 }
 
 #kd{
@@ -90,6 +90,7 @@ body{
     margin-left: 50px;
     padding-top: 40px;
     padding-right: 30px;
+    color:gold;
 }
 
 
@@ -100,6 +101,7 @@ body{
 
 #q{
     padding-top: 40px;
+    margin-top: 40px;
     font-size:20px;
     color:rgb(173, 9, 173);
 }
@@ -115,11 +117,11 @@ h1{
     margin-left: 200px;
 }
 
-#questions,#answer{
+#form1,#answer{
     color:gold;
-    font-weight:bold;
-    font-size: 15px;
 }
+
+
 
 
 #correct{ 

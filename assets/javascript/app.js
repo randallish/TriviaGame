@@ -35,7 +35,7 @@ var questions = [ {
 ]
 
 // global variables with timer and correct/incorrect answers
-var timer = 60;
+var timer = 10;
 var timerId;
 var correct = 0;
 var incorrect = 0;
@@ -44,21 +44,22 @@ var incorrect = 0;
 // creates our questions 
 function createQuestions() {
 for (var i = 0; i < questions.length; i++){
-    $("#questions").append('<h2 id="q">' + questions[i].question + "</h2>");
+    $("#form1").append('<h2 id="q">' + questions[i].question + "</h2>");
 
 // appends answers to each question
 for (var k = 0; k < questions[i].choices.length; k++){
-    $("#questions").append("<input id='answer' type='radio' name='options-" + i +
+    $("#form1").append("<input id='answer' type='radio' name='options" + i +
     "' value='" + questions[i].choices[k] + "''>" + questions[i].choices[k]);
 }
 }
 };
 
+// tried mulitple things to retrieve the value of the radio button,but just couldn't get it
+
 // function answerChecker() {
-//     var userAnswer = $('input[name='options-']:checked').val;
 
 //     for (var j = 0; j < questions.length; j++) {
-//         if (userAnswer === questions[j].answer){
+//         if (userAnswer.checked === questions[j].answer){
 //             correct++;
 //         }
 //         else {
@@ -68,19 +69,66 @@ for (var k = 0; k < questions[i].choices.length; k++){
 //     console.log(incorrect);
 // }
 
-$('input[name="options-0"]').click(function() {
-    alert($('input[name="options-0"]:checked').val());
-});
+// $('input[name="options-0"]').on("click",function() {
+//     if ($(this).val() === questions[0].answer){
+//         correct++;
+//     }
+//     else{
+//         incorrect++;
+//     }
+//     console.log(this);
+// });
+
+// function value() {
+//     var input = form1.elements;
+//     var radios = [];
+//     for (var o = 0; o < input.length; o++){
+//         if (input[o].type == 'radio'){
+//             radios.push(input[o]);
+//         }
+//     }
+//     for (var o = 0; o < radios.length; o++){
+//         if (radios[o].checked){
+//             alert(radios[o].value);
+//         }
+//     }
+//     for (var j = 0; j< questions[o].answer.length;j++){
+//         if (radios[j].checked == questions[o].answer){
+//             correct++;
+//             console.log(radios);
+//         }
+//         else{
+//             incorrect++;
+//         }
+//     }
+// }
+
+
+// var question0 = $('options0');
+//    for(var e = 0; e < question0.length; e++) {
+//       if(question0[e].checked) {
+//          if(question0[e].value == '16 Warriors') {
+//             correct++;
+//             alert("you got it correct");
+//             break;
+//          }
+//          else{
+//              incorrect++;
+//          }
+//       }
+//    }
+
+
 
 
 // function that decreases timer by 1 and update our timer to the html
-// if timer is 0, runs our stop() function
+// if timer is 0, runs our stop() function and displayScore function
 function countdown() {
     timer--;
     $("#time-remaining").html("<h2>" + "Time remaining: " + timer + "</h2>");
     if ( timer === 0){
         stop();
-        //answerChecker();
+        // value();
         displayScore();
     }
 }
@@ -101,7 +149,7 @@ function displayScore() {
     $("#curry").hide();
     $("#kd").hide();
     $("#mj").hide();
-    $("#questions").hide();
+    $("#form1").hide();
     $("#time-remaining").hide();
     $("body").append("<div id='correct'>" +  "Correct: "  + correct + "</div>");
     $("body").append("<div id='incorrect'>" + "Incorrect: " + incorrect + "</div>");
@@ -147,7 +195,6 @@ $("#reset").on("click",function() {
 
     showHide();
     start();
-   // answerChecker();
 });
 
 // button to show our questions and begin the quiz
@@ -160,5 +207,3 @@ $("#start").on("click", function(){
 
 hideItems();
 // createQuestions();
-// start();
-// answerChecker();
