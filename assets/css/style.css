@@ -17,7 +17,7 @@ body{
 
 #logo {
     position: absolute;
-    margin-top: -190px;
+    margin-top: -198px;
     margin-left: -300px;
     width: 12%;
     height: 12%;
@@ -81,7 +81,7 @@ body{
 #start{
     position: absolute;
     margin-top: 100px;
-    margin-left: -55px;
+    margin-left: -60px;
     padding-top:10px;
 }
 
